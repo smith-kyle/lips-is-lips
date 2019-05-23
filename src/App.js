@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import debounce from "lodash.debounce";
+import "./App.css";
+import { getImageInfo } from "./utils";
+import Welcome from "./Welcome";
+import Lips from "./Lips";
+import Results from "./Results";
 
-function App() {
+const App = () => {
+  const [score, setScore] = useState(0);
+  const [curPage, setCurPage] = useState(0);
+  const [windowDims, setWindowDims] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+  useEffect(() => {
+    const handleResize = debounce(
+      () =>
+        setWindowDims({ height: window.innerHeight, width: window.innerWidth }),
+      100
+    );
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {curPage === 0 ? (
+        <Welcome onStart={() => setCurPage(1)} />
+      ) : curPage > 10 ? (
+        <Results score={score} />
+      ) : (
+        <Lips
+          imageInfo={getImageInfo(curPage)}
+          incrementScore={() => setScore(score + 1)}
+          setNextPage={() => setCurPage(curPage + 1)}
+          windowDims={windowDims}
+        />
+      )}
     </div>
   );
-}
+};
 
 export default App;
