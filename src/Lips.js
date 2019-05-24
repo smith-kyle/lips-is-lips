@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Motion, spring } from "react-motion";
+import { Motion, spring as _spring } from "react-motion";
 import { MALE, FEMALE, getNewImageDims, getImageScalingFacor } from "./utils";
 import Button from "./Button";
+
+const spring = val => _spring(val, { stiffness: 100, damping: 40 });
 
 const Lips = ({ imageInfo, incrementScore, setNextPage, windowDims }) => {
   const [isRevealed, setIsRevealed] = useState(false);
