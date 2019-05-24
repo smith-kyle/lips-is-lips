@@ -1,0 +1,543 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0;
+  padding-top: 20px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: "Kaushan Script", cursive;
+  text-align: center;
+}
+h1 {
+  font-size: 60px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 15px;
+}
+.title {
+  border-bottom: 5px solid black;
+}
+$buttonheight: 50px;
+body {
+  background-color: #f7977a;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+.wrapper {
+  width: 100%;
+}
+.layout {
+  width: 1200px;
+  margin: 5px auto;
+}
+.col {
+  width: 300px;
+  float: left;
+  display: block;
+}
+@media (min-width: 400px) {
+  .layout {
+    width: 390px;
+    margin: 5px auto;
+  }
+  .col {
+    margin: auto;
+    float: none;
+  }
+}
+@media (min-width: 620px) {
+  .layout {
+    width: 600px;
+    margin: 5px auto;
+  }
+  .col {
+    margin: auto;
+    float: left;
+  }
+}
+@media (min-width: 1000px) {
+  .layout {
+    width: 900px;
+    margin: 5px auto;
+  }
+}
+@media (min-width: 1250px) {
+  .layout {
+    width: 1200px;
+    margin: 5px auto;
+  }
+}
+
+.button {
+  width: 200px;
+  height: $buttonheight;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 4px solid black;
+  border-radius: 10px;
+  color: black;
+  font-size: 20px;
+  a {
+    color: black;
+    text-decoration: none;
+    line-height: $buttonheight;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  overflow: hidden;
+  position: relative;
+  .first,
+  .second {
+    width: 200px;
+    display: inline-block;
+    float: left;
+  }
+}
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine,
+.ten,
+.eleven,
+.twelve,
+.thirteen,
+.fourteen,
+.fifteen,
+.sixteen {
+  @extend .button;
+  transition: all 0.5s;
+}
+.one,
+.two,
+.three,
+.four {
+  @extend .style1;
+}
+.five,
+.six,
+.seven,
+.eight {
+  @extend .style2;
+}
+.nine,
+.ten,
+.eleven,
+.twelve {
+  @extend .style3;
+}
+.style1 {
+  background: linear-gradient(to left, #f7977a 200px, #3bb878 200px);
+  background-size: 400px 50px;
+  background-repeat: no-repeat;
+  .elong {
+    position: relative;
+    transition: all 0.5s;
+  }
+}
+.style2 {
+  .elong {
+    position: relative;
+    transition: all 0.5s;
+    .second {
+      position: relative;
+    }
+  }
+}
+.style3 {
+  background-size: 800px 200px;
+  .second {
+    a {
+      color: #3bb878;
+      letter-spacing: 2px;
+    }
+  }
+  .elong {
+    transition: all 0.5s;
+    position: relative;
+  }
+}
+.grad1 {
+  background: linear-gradient(to bottom right, #3bb878 150px, #f7977a 150px);
+}
+.grad2 {
+  background: linear-gradient(to bottom left, #3bb878 150px, #f7977a 150px);
+}
+.grad3 {
+  background: linear-gradient(to top right, #3bb878 150px, #f7977a 150px);
+}
+.grad4 {
+  background: linear-gradient(to top left, #3bb878 150px, #f7977a 150px);
+}
+.grad1,
+.grad2,
+.grad3,
+.grad4 {
+  background-size: 300px 200px;
+  background-repeat: no-repeat;
+}
+.grad5 {
+  background: repeating-linear-gradient(
+    to bottom right,
+    #f7977a,
+    #f7977a 20px,
+    #3bb878 20px,
+    #3bb878 40px
+  );
+}
+.grad6 {
+  background: repeating-linear-gradient(
+    to bottom left,
+    #f7977a,
+    #f7977a 20px,
+    #3bb878 20px,
+    #3bb878 40px
+  );
+}
+.grad7 {
+  background: repeating-linear-gradient(
+    to bottom right,
+    #f7977a,
+    #f7977a 20px,
+    #3bb878 20px,
+    #3bb878 40px
+  );
+}
+.grad8 {
+  background: repeating-linear-gradient(
+    to bottom left,
+    #f7977a,
+    #f7977a 20px,
+    #3bb878 20px,
+    #3bb878 40px
+  );
+}
+.one {
+  background-position: 200px 0px;
+  .elong {
+    width: 400px;
+    left: 0px;
+  }
+}
+.two {
+  background-position: 0px $buttonheight;
+  .elong {
+    width: 200px;
+    top: 0px;
+  }
+}
+.three {
+  background-position: -200px 0px;
+  .elong {
+    width: 400px;
+    left: -200px;
+  }
+}
+.four {
+  background-position: 0px -50px;
+  .elong {
+    width: 200px;
+    top: -50px;
+  }
+}
+.one:hover,
+.one:focus,
+.two:hover,
+.two:focus,
+.three:hover,
+.three:focus,
+.four:hover,
+.four:focus {
+  background-position: 0px 0px;
+}
+.one:hover .elong,
+.one:focus .elong {
+  left: -200px;
+}
+.two:hover .elong,
+.two:focus .elong {
+  top: -50px;
+}
+.three:hover .elong,
+.three:focus .elong {
+  left: 0px;
+}
+.four:hover .elong,
+.four:focus .elong {
+  top: 0px;
+}
+.five {
+  @extend .grad1;
+  background-position: -150px -150px;
+  .elong {
+    left: -200px;
+    top: -50px;
+    .second {
+      left: 200px;
+    }
+  }
+}
+.six {
+  @extend .grad2;
+  background-position: 150px -150px;
+  .elong {
+    left: 200px;
+    top: -50px;
+    .second {
+      left: -200px;
+    }
+  }
+}
+.seven {
+  @extend .grad3;
+  background-position: -150px 0px;
+  .elong {
+    left: 0px;
+    top: 0px;
+    .second {
+      left: -200px;
+    }
+  }
+}
+.eight {
+  @extend .grad4;
+  background-position: 50px 0px;
+  .elong {
+    left: 0px;
+    top: 0px;
+    .second {
+      left: 200px;
+    }
+  }
+}
+.five:hover,
+.five:focus {
+  background-position: 0px 0px;
+}
+.five:hover .elong,
+.five:focus .elong {
+  top: 0px;
+  left: 0px;
+}
+.six:hover,
+.six:focus {
+  background-position: -100px 0px;
+}
+.six:hover .elong,
+.six:focus .elong {
+  top: 0px;
+  left: 0px;
+}
+.seven:hover,
+seven:focus {
+  background-position: 0px -150px;
+}
+.seven:hover .elong,
+.seven:focus .elong {
+  top: -50px;
+  left: 200px;
+}
+.eight:hover,
+eight:focus {
+  background-position: -100px -150px;
+}
+.eight:hover .elong,
+.eight:focus .elong {
+  top: -50px;
+  left: -200px;
+}
+.nine,
+.ten,
+.eleven,
+.twelve {
+}
+.nine {
+  .elong {
+    width: 400px;
+    left: 0px;
+  }
+}
+.ten {
+  .elong {
+    width: 200px;
+    top: 0px;
+  }
+}
+.eleven {
+  .elong {
+    width: 400px;
+    left: -200px;
+  }
+  .secondary {
+    color: white;
+  }
+}
+.twelve {
+  .elong {
+    width: 200px;
+    top: -50px;
+  }
+}
+.nine:hover,
+nine:focus,
+.ten:hover,
+.ten:focus,
+.eleven:hover,
+.eleven:focus,
+.twelve:hover,
+.twelve:focus {
+  border: 4px solid #3bb878;
+}
+.nine:hover .elong,
+.nine:focus .elong {
+  left: -200px;
+}
+.ten:hover .elong,
+.ten:focus .elong {
+  top: -50px;
+}
+.eleven:hover .elong,
+.eleven:focus .elong {
+  left: 0px;
+}
+.twelve:hover .elong,
+.twelve:focus .elong {
+  top: 0px;
+}
+.thirteen {
+  .first {
+    opacity: 1;
+  }
+  .second {
+    position: relative;
+    top: -50px;
+    opacity: 0;
+  }
+}
+.thirteen:hover,
+thirteen:focus {
+  transform: rotate(3deg);
+}
+.thirteen:hover .first,
+thirteen:focus .first {
+  opacity: 0;
+}
+.thirteen:hover .second,
+thirteen:focus .second {
+  opacity: 1;
+}
+.fourteen {
+  .first {
+    opacity: 1;
+  }
+  .second {
+    position: relative;
+    top: -50px;
+    opacity: 0;
+  }
+  margin: 10px 10px 0 10px;
+}
+.fourteen:hover,
+fourteen:focus {
+  transform: rotate(-3deg);
+}
+.fourteen:hover .first,
+fourteen:focus .first {
+  opacity: 0;
+}
+.fourteen:hover .second,
+fourteen:focus .second {
+  opacity: 1;
+}
+.fifteen {
+  .elong {
+    width: 400px;
+  }
+  .first,
+  .second {
+    transition: all 0.5s linear;
+  }
+  .first {
+    position: relative;
+    left: 0px;
+  }
+  .second {
+    transform: rotateY(90deg);
+    position: relative;
+    left: -100px;
+    top: 0px;
+    a {
+      color: #3bb878;
+      letter-spacing: 2px;
+    }
+  }
+}
+.fifteen:hover {
+  .first {
+    transform: rotateY(90deg);
+    left: -100px;
+    transform-style: preserve-3d;
+  }
+  .second {
+    transform: rotateY(0deg);
+    left: -200px;
+    transform-style: preserve-3d;
+  }
+}
+.sixteen {
+  .first,
+  .second {
+    transition: all 0.5s linear;
+  }
+  .first {
+    position: relative;
+    top: 0px;
+  }
+  .second {
+    transform: rotateX(90deg);
+    position: relative;
+    top: -30px;
+    a {
+      color: #3bb878;
+      letter-spacing: 2px;
+    }
+  }
+}
+.sixteen:hover {
+  .first {
+    transform: rotateX(90deg);
+    top: -20px;
+    transform-style: preserve-3d;
+  }
+  .second {
+    transform: rotateX(0deg);
+    top: -50px;
+    transform-style: preserve-3d;
+  }
+}

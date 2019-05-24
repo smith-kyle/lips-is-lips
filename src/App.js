@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import debounce from "lodash.debounce";
 import "./App.css";
-import { getImageInfo } from "./utils";
+import { getImageInfo, numImages } from "./utils";
 import Welcome from "./Welcome";
 import Lips from "./Lips";
 import Results from "./Results";
@@ -23,10 +23,10 @@ const App = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className="App">
+    <div className="App" style={{ height: windowDims.height }}>
       {curPage === 0 ? (
         <Welcome onStart={() => setCurPage(1)} />
-      ) : curPage > 10 ? (
+      ) : curPage > numImages ? (
         <Results score={score} />
       ) : (
         <Lips

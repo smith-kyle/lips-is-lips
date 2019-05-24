@@ -8,6 +8,7 @@ const METADATA = [
   [getBoundingBox(257, 313, 161, 184), [620, 375], FEMALE],
   [getBoundingBox(263, 389, 314, 396), [680, 478], MALE]
 ];
+export const numImages = METADATA.length;
 const getImagePath = n => `/images/img${n}.jpg`;
 export const getImageInfo = curPage => [
   getImagePath(curPage),
@@ -15,7 +16,7 @@ export const getImageInfo = curPage => [
 ];
 
 const WIDTH_FACTOR = 0.8;
-const HEIGHT_MARGIN = 20;
+const HEIGHT_MARGIN = 40;
 
 export const getImageScalingFacor = (windowDims, [imgWidth, imgHeight]) => {
   const targetWidth = windowDims.width * WIDTH_FACTOR;

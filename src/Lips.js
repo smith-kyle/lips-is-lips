@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Motion, spring } from "react-motion";
 import { MALE, FEMALE, getNewImageDims, getImageScalingFacor } from "./utils";
+import Button from "./Button";
 
 const Lips = ({ imageInfo, incrementScore, setNextPage, windowDims }) => {
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [path, boundingBox, imgDims, gender] = imageInfo;
   const revealedDims = getNewImageDims(windowDims, imgDims, boundingBox);
   const imageScalingFactor = getImageScalingFacor(windowDims, imgDims);
+  if (isLoading) {
+    return null;
+  }
   return (
     <div
       style={{
@@ -48,6 +53,7 @@ const Lips = ({ imageInfo, incrementScore, setNextPage, windowDims }) => {
         }) => (
           <div
             style={{
+              marginTop: 10,
               maxWidth: maskWidth,
               maxHeight: maskHeight,
               textIndent: maskOffsetX,
@@ -67,41 +73,38 @@ const Lips = ({ imageInfo, incrementScore, setNextPage, windowDims }) => {
           </div>
         )}
       </Motion>
-      {!isRevealed
-        ? [
-            <button
-              key="boy"
-              onClick={() => {
-                setIsRevealed(true);
-                if (gender === MALE) {
-                  incrementScore();
-                }
-              }}
-            >
-              Boy
-            </button>,
-            <button
-              key="girl"
-              onClick={() => {
-                setIsRevealed(true);
-                if (gender === FEMALE) {
-                  incrementScore();
-                }
-              }}
-            >
-              Girl
-            </button>
-          ]
-        : null}
+      {!isRevealed ? (
+        <div className="choices" style={{ display: "flex" }}>
+          <Button
+            text="Boy"
+            onClick={() => {
+              setIsRevealed(true);
+              if (gender === MALE) {
+                incrementScore();
+              }
+            }}
+          />
+          <Button
+            text="Girl"
+            onClick={() => {
+              setIsRevealed(true);
+              if (gender === FEMALE) {
+                incrementScore();
+              }
+            }}
+          />
+        </div>
+      ) : null}
       {isRevealed ? (
-        <button
+        <Button
+          text="Next"
           onClick={() => {
+            setIsLoading(true);
             setIsRevealed(false);
-            setTimeout(setNextPage, 1000);
+            setNextPage();
+            setTimeout(() => setIsLoading(false), 0);
           }}
-        >
-          Next
-        </button>
+        />
       ) : null}
     </div>
   );
