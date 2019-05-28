@@ -76,7 +76,13 @@ const Lips = ({ imageInfo, incrementScore, setNextPage, windowDims }) => {
         )}
       </Motion>
       {!isRevealed ? (
-        <div className="choices" style={{ display: "flex" }}>
+        <div
+          className="choices"
+          style={{
+            display: "flex",
+            flexDirection: windowDims.width > 460 ? "row" : "column"
+          }}
+        >
           <Button
             text="Boy"
             onClick={() => {
