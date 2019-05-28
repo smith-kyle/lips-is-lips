@@ -13,8 +13,10 @@ const METADATA = [
   [getBoundingBox(365, 435, 188, 244), [759, 422], FEMALE],
   [getBoundingBox(196, 288, 357, 444), [338, 600], MALE]
 ];
+export const getUrl = url =>
+  process.env.NODE_ENV === "development" ? url : "/lips-is-lips" + url;
 export const numImages = METADATA.length;
-const getImagePath = n => `/images/img${n}.jpg`;
+const getImagePath = n => getUrl(`/images/img${n}.jpg`);
 export const getImageInfo = curPage => [
   getImagePath(curPage),
   ...METADATA[curPage - 1]
