@@ -6,7 +6,12 @@ const getBoundingBox = (xMin, xMax, yMin, yMax) => ({ xMin, xMax, yMin, yMax });
 const METADATA = [
   [getBoundingBox(346, 472, 397, 452), [647, 800], MALE],
   [getBoundingBox(257, 313, 161, 184), [620, 375], FEMALE],
-  [getBoundingBox(263, 389, 314, 396), [680, 478], MALE]
+  [getBoundingBox(263, 389, 314, 396), [680, 478], MALE],
+  [getBoundingBox(372, 433, 183, 217), [800, 449], MALE],
+  [getBoundingBox(131, 221, 151, 204), [300, 300], MALE],
+  [getBoundingBox(113, 190, 235, 271), [300, 300], MALE],
+  [getBoundingBox(365, 435, 188, 244), [759, 422], FEMALE],
+  [getBoundingBox(196, 288, 357, 444), [338, 600], MALE]
 ];
 export const numImages = METADATA.length;
 const getImagePath = n => `/images/img${n}.jpg`;
